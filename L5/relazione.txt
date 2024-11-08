@@ -1,0 +1,28 @@
+Il cliente, azienda di consulenza edilizia, richiede una rete suddivisa in 4 VLAN nel proprio ufficio:
+VLAN.10	amministrazione
+	- 2 terminali
+	- IP 192.168.10.100 - 192.168.10.101
+	- IP gateway 192.168.10.1
+	- accesso al router
+VLAN.20	esecuzione
+	- 5 terminali
+	- IP 192.168.20.100 - 192.168.20.104
+	- IP gateway 192.168.20.1
+	- accesso al server1
+	- accesso al router
+VLAN.30	progettazione
+	- 5 terminali
+	- IP 192.168.30.100 - 192.168.30.104
+	- IP gateway 192.168.30.1
+	- accesso al server1
+	- accesso al router
+VLAN.40	HR
+	- 3 terminali
+	- IP 192.168.40.100 - 192.168.40.102
+	- IP gateway 192.168.40.1
+	- accesso al router
+ROUTER
+	- IP 192.168.50.50
+	- IP gateway 192.168.50.1
+	- comunica con tutti i terminali della rete
+	- configurazione tutte VLAN porta Gigabit 
