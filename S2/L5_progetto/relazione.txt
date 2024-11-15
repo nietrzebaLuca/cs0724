@@ -1,0 +1,24 @@
+Errori nel codice:					Corretto
+ - riga 4: datetime.datetoday()				datetime.date.today()
+ 
+Avviato il codice errato accade:
+ - ciclo while lavora finche non ottiene il comando 'exit' (sennò il programma funziona all'infinito)
+ - su terminale il ciclo stampa(fa richiesta all'utente): "Cosa vuoi sapere? " 
+ - l'utente inserendo comando "Qual è la data di oggi?" Si ritrova davanti un Errore di tipo Attributo .datetoday() non esiste nella libreria
+ - se inseriti altri comandi stampa su riga di comando le risposte
+
+Avviato il codice corretto accade:
+ - ciclo while lavora finche non ottiene il comando 'exit' (sennò il programma funziona all'infinito)
+ - su terminale il ciclo stampa(fa richiesta all'utente): "Cosa vuoi sapere? " e stampa anche l'indice dei comandi
+ - l'utente deve inserire uno dei tre comandi definiti nella funzione assistente_virtuale:
+	1 Qual è la data di oggi? - 2 Che ore sono? - 3 Come ti chiami?
+ - se inseriti comandi corretti allora la funzione definita "assistente_virtuale" risponde stampando l'opportuno output a differenza input
+
+Ottimizzazione:
+ - aggiunta di un indice per far sapere all'utente delle uniche valide stringhe di comando
+ - definizione di una funzione main() che gestisce il ciclo while
+ - aggiunta di un gestore di eccezioni/errori
+
+(SPAZI NEL CODICE CORRETTO ERRATi: textEdit ha un tab di 8 caratteri e non riesco a modificarlo)
+
+
