@@ -1,0 +1,4 @@
+cifrato = HSNFRGH
+cifrario = di Cesare
+possibile chiave = 3
+plaintext = EPKCODE
