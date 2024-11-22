@@ -1,0 +1,51 @@
+RELAZIONE
+
+Lo scopo è di creare un'infrastruttura sicura e ben segmentata, utilizzando la separazione delle zone di
+sicurezza per proteggere i dati aziendali.
+La rete è suddivisa in tre zone principali:
+
+ - Zona Internet (rete esterna)
+ - Zona DMZ (Demilitarized Zone)
+ - Rete interna (intranet aziendale)
+Firewall ASA 5506-X è utilizzato come dispositivo di sicurezza perimetrale.
+
+Descrizione della Rete
+ - Zona Internet (rete esterna):
+	Un router Cisco ISR 4331 è connesso a un cloud che simula la rete Internet.
+	
+	Motivazioni:
+	Il router funge da gateway per il traffico in ingresso e uscita dalla rete locale.
+	È collegato all'interfaccia outside del firewall, per garantire che tutte le comunicazioni
+	tra la rete esterna e le zone interne siano esaminate e controllate dal firewall.
+ - Zona DMZ (Demilitarized Zone):
+	Uno switch che collega tre server
+	Server HTTP: Fornisce contenuti web accessibili pubblicamente.
+	Server SMTP: Gestisce il traffico email.
+	
+	Motivazioni:
+	La DMZ è progettata per ospitare servizi accessibili sia dall'esterno che dall'interno,
+	isolando questi server dal resto della rete aziendale.
+	La sicurezza della DMZ è garantita tramite regole ACL nel firewall, che limitano il traffico in ingresso e uscita.
+ - Zona Interna (rete interna):
+	Uno switch che connette
+	Server NAS per la condivisione di file e backup aziendali.
+	Due PC per gli utenti interni.
+	
+	Motivazioni:
+	La rete interna è configurata con il livello di sicurezza massimo, per proteggere i dati sensibili.
+	I dispositivi all'interno della rete interna possono accedere alla DMZ solo attraverso
+	regole di accesso specifiche, mentre l'accesso da Internet è completamente vietato.
+
+Firewall Perimetrale (Cisco ASA 5506-X)
+Si trova al centro della rete, collega la rete esterna, la DMZ e la rete interna. È stato configurato con:
+ - Interfacce separate:
+	Outside (Internet): Livello di sicurezza 0.
+	DMZ: Livello di sicurezza 50.
+	Inside (rete interna): Livello di sicurezza 100.
+ - NAT :
+	Il NAT consente ai dispositivi interni di accedere a Internet senza esporre gli indirizzi IP privati.
+	Permette l'accesso ai servizi nella DMZ (HTTP, SMTP) da parte di utenti esterni.
+ - Access Control Lists (ACL):
+	HTTP e SMTP sono permessi verso la DMZ.
+	Il traffico interno è permesso verso la DMZ per servizi specifici.
+	Tutto il traffico non autorizzato viene bloccato.
