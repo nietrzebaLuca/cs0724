@@ -1,0 +1,49 @@
+Relazione Vulnerabilità
+
+Vulnerabilità 
+a seguito di una scansione avanzata, con report in pdf, ho rilevato le seguenti vulnerabilità.	(solo le prime 9 che sono le piu critiche, e ce ne sono tante LOL)
+
+1-Apache Tomcat AJP Connector Request Injection (Ghostcat)
+	Descrizione: Vulnerabilità critica che permette a un attaccante remoto e non autenticato di leggere file delle applicazioni web su server vulnerabili. In alcuni scenari, potrebbe portare all'esecuzione emota di codice (RCE). La vulnerabilità interessa Apache Tomcat con AJP abilitato e configurazioni predefinite.
+	Severity: Critico 
+	Plugin: 134862​1
+
+2-SSL Version 2 and 3 Protocol Detection
+	Descrizione: Supporto attivo di protocolli SSL obsoleti e insicuri (SSLv2 e SSLv3). Questi protocolli sono vulnerabili ad attacchi crittografici noti, come BEAST e POODLE, che compromettono la 	riservatezza delle comunicazioni.
+	Severity: Critico 
+	Plugin: 20007​1
+
+3-Debian OpenSSH/OpenSSL Package Random Number Generator Weakness
+	Descrizione: Difetto critico nel generatore di numeri casuali dei pacchetti Debian OpenSSH/OpenSSL. Questo problema causa chiavi crittografiche prevedibili, facilitando attacchi brute force.
+	Severity: Critico 
+	Plugin: 32314​1
+
+4-Debian OpenSSH/OpenSSL Package Random Number Generator Weakness (SSL Check)
+	Descrizione: Variante della vulnerabilità precedente, con enfasi sui check SSL. Anche qui, il problema è relativo a chiavi crittografiche deboli, minacciando la sicurezza delle connessioni SSL.
+	Severity: Critico 	
+	Plugin: 32321​1
+
+5-VNC Server 'password' Password
+	Descrizione: Server VNC configurato con una password predefinita ("password"). Questo consente a un attaccante non autenticato di ottenere accesso completo al sistema remoto.
+	Severity: Critico
+	Plugin 61708​1
+
+6-ISC BIND Service Downgrade / Reflected DoS
+	Descrizione: Debolezza nel servizio DNS ISC BIND, che lo rende vulnerabile a un attacco di tipo Denial of Service riflesso. Questo può compromettere la disponibilità del servizio DNS.
+	Severity: Alto 
+	Plugin: 136769​1
+
+7-NFS Shares World Readable
+	Descrizione: Condivisioni NFS configurate come leggibili pubblicamente. Ciò consente a utenti non autorizzati di accedere e leggere i file condivisi.
+	Severity: Alto
+	Plugin: 42256​1
+
+8-SSL Medium Strength Cipher Suites Supported (SWEET32)
+	Descrizione: Supporto attivo di suite di cifratura di media robustezza che utilizzano algoritmi crittografici obsoleti come 3DES. Questi possono essere sfruttati per violare la confidenzialità delle municazioni.
+	Severity: Alto
+	Plugin: 42873​1
+
+9-Samba Badlock Vulnerability
+	Descrizione: Bug nella suite Samba che espone i server a vulnerabilità di tipo "man-in-the-middle" o Denial of Service. L'attaccante potrebbe intercettare e manipolare comunicazioni SMB.
+	Severity: Alto
+	Plugin: 90509​1
