@@ -1,0 +1,25 @@
+conf rete:
+eth0      Link encap:Ethernet  HWaddr 08:00:27:43:2a:32  
+          inet addr:192.168.11.112  Bcast:192.168.11.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:fe43:2a32/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:4337 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3623 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:455395 (444.7 KB)  TX bytes:548518 (535.6 KB)
+          Base address:0xd010 Memory:f0200000-f0220000 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:399 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:399 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:96191 (93.9 KB)  TX bytes:96191 (93.9 KB)
+
+tabella routing:
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+192.168.11.0    *               255.255.255.0   U         0 0          0 eth0
+default         192.168.11.1    0.0.0.0         UG        0 0          0 eth0
