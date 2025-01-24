@@ -1,0 +1,1 @@
+Esercizio non completo, manca la parte della connessione da remoto. Argomento in generale non mi è chiaro me lo rivedo questo fine settimana da solo.
